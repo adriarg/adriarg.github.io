@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="icon" href="data:,">
+  <meta name="description" content="Adria Rocamora — Cloud Operations Graduate Engineer focused on Azure, Infrastructure as Code and reliable platform operations.">
+  <title>Adria Rocamora | Cloud Operations Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <style>
+    :root { color-scheme: dark; --page: #0f172a; --cyan: #67e8f9; --blue: #60a5fa; }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body {
+      background:
+        radial-gradient(ellipse at 8% 8%, rgba(8, 145, 178, .12), transparent 34rem),
+        radial-gradient(ellipse at 92% 25%, rgba(37, 99, 235, .12), transparent 32rem),
+        var(--page);
+      color: #e2e8f0;
+      font-family: "Inter Tight", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    ::selection { background: rgba(34, 211, 238, .28); color: white; }
+    .glass { background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.10); backdrop-filter: blur(16px); }
+    .section-anchor { scroll-margin-top: 6.5rem; }
+    .hero-glow { background: radial-gradient(circle, rgba(34,211,238,.20), rgba(37,99,235,.09) 45%, transparent 72%); filter: blur(12px); }
+    .photo-frame { background: linear-gradient(145deg, rgba(103,232,249,.92), rgba(96,165,250,.72) 48%, rgba(129,140,248,.78)); padding: 1px; box-shadow: 0 0 70px rgba(34,211,238,.13); }
+    .photo-inner { background: linear-gradient(180deg, rgba(15,23,42,.2), rgba(15,23,42,.92)); }
+    .photo-ghost { position: absolute; left: 50%; top: 39%; transform: translate(-50%,-50%); color: transparent; -webkit-text-stroke: 1px rgba(226,232,240,.2); font-family: "Inter Tight", sans-serif; font-size: clamp(3.4rem, 10vw, 6.8rem); font-weight: 700; letter-spacing: .07em; white-space: nowrap; pointer-events: none; }
+    .nav-link { color: #94a3b8; transition: color .18s ease; }
+    .nav-link:hover, .nav-link:focus-visible { color: #67e8f9; }
+    .site-brand { position: relative; z-index: 2; display: flex; flex: 0 0 auto; align-items: center; gap: .75rem; color: #f1f5f9; }
+    .site-brand-mark { display: grid; width: 2.25rem; height: 2.25rem; place-items: center; border: 1px solid rgba(103,232,249,.25); border-radius: .75rem; background: rgba(103,232,249,.10); color: #a5f3fc; font-size: .875rem; font-weight: 700; }
+    .site-brand-name { color: #f1f5f9; font-size: .875rem; font-weight: 600; letter-spacing: .025em; white-space: nowrap; }
+    @media (max-width: 639px) { .site-brand-name { display: none; } }
+    .nav-index, .section-index, .case-label, .stack-count { font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace; }
+    .nav-index { color: #64748b; font-size: .62rem; margin-right: .35rem; }
+    .section-index { display: inline-flex; align-items: center; gap: .65rem; color: #94a3b8; font-size: .68rem; letter-spacing: .13em; text-transform: uppercase; }
+    .section-index span:first-child { color: #67e8f9; }
+    .hero-name-accent { font-family: "Instrument Serif", Georgia, serif; font-size: 1.08em; font-style: italic; font-weight: 400; letter-spacing: -.04em; }
+    .focus-ring:focus-visible { outline: 2px solid #67e8f9; outline-offset: 3px; }
+    .primary-button { background: linear-gradient(110deg, #0891b2, #2563eb); box-shadow: 0 10px 32px rgba(8,145,178,.18); }
+    .primary-button:hover { filter: brightness(1.12); }
+    .periodic-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .7rem; }
+    @media (min-width: 540px) { .periodic-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: .8rem; } }
+    @media (min-width: 760px) { .periodic-grid { grid-template-columns: repeat(4, minmax(0,1fr)); } }
+    @media (min-width: 1024px) { .periodic-grid { grid-template-columns: repeat(6, minmax(0,1fr)); gap: .9rem; } }
+    .skill-card { --accent: #67e8f9; position: relative; isolation: isolate; min-height: 118px; transition: opacity .2s ease, transform .2s ease, border-color .2s ease, background .2s ease; }
+    .skill-card:hover, .skill-card:focus-visible { transform: translateY(-3px); z-index: 5; }
+    .skill-card.is-dimmed { opacity: .28; }
+    .skill-card.is-selected { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, rgba(255,255,255,.035)); box-shadow: 0 0 24px color-mix(in srgb, var(--accent) 20%, transparent); }
+    .skill-symbol { color: var(--accent); }
+    .skill-hint { position: absolute; left: 50%; bottom: calc(100% + 9px); width: min(220px, 76vw); transform: translate(-50%, 4px); opacity: 0; pointer-events: none; z-index: 20; padding: .65rem .75rem; border: 1px solid rgba(148,163,184,.24); border-radius: .75rem; background: #111c31; color: #cbd5e1; box-shadow: 0 12px 30px rgba(0,0,0,.35); font-size: .72rem; line-height: 1.45; text-align: left; transition: opacity .15s ease, transform .15s ease; }
+    .skill-card:hover .skill-hint, .skill-card:focus-visible .skill-hint { opacity: 1; transform: translate(-50%, 0); }
+    .filter-button { border: 1px solid rgba(148,163,184,.18); color: #94a3b8; transition: color .18s ease, border-color .18s ease, background .18s ease; }
+    .filter-button[aria-pressed="true"] { border-color: rgba(103,232,249,.56); background: rgba(34,211,238,.10); color: #cffafe; }
+    .category-cloud { --accent: #67e8f9; }
+    .category-delivery { --accent: #93c5fd; }
+    .category-platform { --accent: #c4b5fd; }
+    .category-reliability { --accent: #86efac; }
+    .category-scripting { --accent: #fcd34d; }
+    .category-cloud .skill-symbol { color: #67e8f9; }
+    .category-delivery .skill-symbol { color: #93c5fd; }
+    .category-platform .skill-symbol { color: #c4b5fd; }
+    .category-reliability .skill-symbol { color: #86efac; }
+    .category-scripting .skill-symbol { color: #fcd34d; }
+    .timeline-dot { box-shadow: 0 0 0 5px rgba(34,211,238,.10), 0 0 22px rgba(34,211,238,.42); }
+    .subtle-grid { background-image: linear-gradient(rgba(148,163,184,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,.045) 1px, transparent 1px); background-size: 28px 28px; }
+    .case-label { color: #67e8f9; font-size: .61rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; }
+    .profile-trigger { border: 1px solid rgba(255,255,255,.12); background: rgba(2,6,23,.72); color: #e2e8f0; backdrop-filter: blur(14px); }
+    .profile-trigger:hover { border-color: rgba(103,232,249,.5); color: #cffafe; }
+    @media (max-width: 639px) {
+      .hero-layout { width: 100%; grid-template-columns: minmax(0,1fr); }
+      .hero-copy, .hero-summary, .hero-photo { width: 100%; min-width: 0; max-width: 100%; }
+      html, body { max-width: 100%; overflow-x: clip; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto !important; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-cyan-300 focus:px-4 focus:py-2 focus:text-slate-950" data-i18n="skip">Skip to content</a>
+
+  <header class="sticky top-0 z-50 border-b border-white/[.07] bg-slate-950/75 backdrop-blur-xl">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8">
+      <a href="#home" class="site-brand focus-ring rounded-lg" aria-label="Adria Rocamora — Home">
+        <span class="site-brand-mark">AR</span>
+        <span class="site-brand-name">Adria Rocamora</span>
+      </a>
+
+      <nav id="primary-nav" class="hidden items-center gap-7 md:flex" aria-label="Primary navigation">
+        <a class="nav-link text-sm" href="#home"><span class="nav-index">01</span><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link text-sm" href="#skills"><span class="nav-index">02</span><span data-i18n="nav.skills">Skills</span></a>
+        <a class="nav-link text-sm" href="#work"><span class="nav-index">03</span><span data-i18n="nav.work">Projects</span></a>
+        <a class="nav-link text-sm" href="#experience"><span class="nav-index">04</span><span data-i18n="nav.experience">Experience</span></a>
+        <a class="nav-link text-sm" href="#contact"><span class="nav-index">05</span><span data-i18n="nav.contact">Contact</span></a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <div class="flex rounded-xl border border-white/10 bg-white/[.035] p-1" role="group" aria-label="Language">
+          <button class="language-button focus-ring rounded-lg px-2.5 py-1 text-xs font-semibold" type="button" data-language="en" aria-pressed="true">EN</button>
+          <button class="language-button focus-ring rounded-lg px-2.5 py-1 text-xs font-semibold" type="button" data-language="es" aria-pressed="false">ES</button>
+        </div>
+        <div class="hidden items-center gap-2 sm:flex" id="header-socials">
+          <a id="header-github" class="focus-ring grid h-9 w-9 place-items-center rounded-xl border border-white/10 text-slate-300 hover:border-cyan-300/40 hover:text-cyan-200" href="#" aria-label="GitHub" hidden><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+          <a id="header-linkedin" class="focus-ring grid h-9 w-9 place-items-center rounded-xl border border-white/10 text-slate-300 hover:border-cyan-300/40 hover:text-cyan-200" href="#" aria-label="LinkedIn" hidden><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        </div>
+        <button id="mobile-menu-button" class="focus-ring grid h-9 w-9 place-items-center rounded-xl border border-white/10 text-slate-200 md:hidden" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu" data-i18n-aria="menu.open">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+    <nav id="mobile-nav" class="hidden border-t border-white/[.07] px-5 py-3 md:hidden" aria-label="Mobile navigation">
+      <div class="mx-auto flex max-w-7xl flex-wrap gap-x-6 gap-y-3">
+        <a class="nav-link py-1 text-sm" href="#home"><span class="nav-index">01</span><span data-i18n="nav.home">Home</span></a>
+        <a class="nav-link py-1 text-sm" href="#skills"><span class="nav-index">02</span><span data-i18n="nav.skills">Skills</span></a>
+        <a class="nav-link py-1 text-sm" href="#work"><span class="nav-index">03</span><span data-i18n="nav.work">Projects</span></a>
+        <a class="nav-link py-1 text-sm" href="#experience"><span class="nav-index">04</span><span data-i18n="nav.experience">Experience</span></a>
+        <a class="nav-link py-1 text-sm" href="#contact"><span class="nav-index">05</span><span data-i18n="nav.contact">Contact</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section id="home" class="section-anchor relative isolate overflow-hidden">
+      <div class="pointer-events-none absolute -right-24 top-10 -z-10 h-[34rem] w-[34rem] rounded-full hero-glow"></div>
+      <div class="hero-layout mx-auto grid grid-cols-1 max-w-7xl items-center gap-14 px-5 pb-24 pt-16 sm:px-8 sm:pt-24 lg:grid-cols-[1.1fr_.9fr] lg:gap-16 lg:pb-32 lg:pt-28">
+        <div class="hero-copy min-w-0 max-w-2xl">
+          <div class="section-index mb-6"><span>01</span><span data-i18n="hero.section">About</span></div>
+          <div class="mb-7 inline-flex items-center gap-2 rounded-full border border-cyan-300/15 bg-cyan-300/[.06] px-3.5 py-2 text-xs font-medium tracking-wide text-cyan-100">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+            <span data-i18n="hero.eyebrow">Cloud Platform Operations · SRE</span>
+          </div>
+          <p class="mb-4 text-sm font-medium uppercase tracking-[.22em] text-slate-400" data-i18n="hero.greeting">Hello, I'm</p>
+          <h1 class="text-4xl font-semibold leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-7xl">Adria <span class="hero-name-accent bg-gradient-to-r from-cyan-200 via-sky-300 to-blue-400 bg-clip-text text-transparent">Rocamora</span></h1>
+          <p class="mt-6 text-lg font-medium text-slate-200 sm:text-xl" data-i18n="hero.role">Cloud Operations Graduate Engineer at Sage</p>
+          <p class="hero-summary mt-5 max-w-xl text-base leading-8 text-slate-400 sm:text-lg" data-i18n="hero.summary">I help cloud platforms stay secure, dependable and easier to operate through Azure, Infrastructure as Code and thoughtful operations.</p>
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href="#work" class="primary-button focus-ring inline-flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm font-semibold text-white"><span data-i18n="hero.projects">Explore my work</span> <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i></a>
+            <a href="#contact" class="focus-ring inline-flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/[.035] px-5 py-3 text-sm font-semibold text-slate-200 hover:border-cyan-300/35 hover:text-cyan-100"><span data-i18n="hero.contact">Get in touch</span> <i class="fa-regular fa-paper-plane text-xs" aria-hidden="true"></i></a>
+          </div>
+          <div class="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-slate-400">
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-location-dot text-cyan-300/80" aria-hidden="true"></i><span data-i18n="hero.location">Barcelona, Spain</span></span>
+            <span class="hidden h-1 w-1 rounded-full bg-slate-600 sm:block"></span>
+            <span class="inline-flex items-center gap-2"><i class="fa-regular fa-calendar text-cyan-300/80" aria-hidden="true"></i><span data-i18n="hero.date">At Sage since July 2026</span></span>
+          </div>
+        </div>
+
+        <div class="hero-photo relative mx-auto w-full max-w-[440px] lg:mr-4">
+          <div class="pointer-events-none absolute inset-2 rounded-[2.4rem] hero-glow"></div>
+          <div class="photo-frame relative rounded-[2rem]">
+            <div class="photo-inner subtle-grid relative flex min-h-[420px] items-end justify-center overflow-hidden rounded-[calc(2rem-1px)] sm:min-h-[500px]">
+              <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent"></div>
+              <span class="photo-ghost" aria-hidden="true">ADRIA</span>
+              <button id="profile-card-toggle" class="profile-trigger focus-ring absolute right-5 top-5 z-20 inline-flex items-center gap-2 rounded-xl px-3 py-2 text-[11px] font-semibold" type="button" aria-controls="profile-card" aria-expanded="false" data-i18n-aria="photo.profileAria"><i class="fa-regular fa-id-card" aria-hidden="true"></i><span data-i18n="photo.profileButton">Quick profile</span></button>
+              <div id="profile-card" class="absolute right-5 top-[4.25rem] z-30 w-64 max-w-[calc(100%-2.5rem)] rounded-2xl border border-white/10 bg-slate-950/95 p-4 text-left shadow-2xl backdrop-blur-xl sm:right-6" role="region" aria-labelledby="profile-card-title" hidden>
+                <div class="flex items-start justify-between gap-3">
+                  <div><p class="text-[10px] font-semibold uppercase tracking-[.18em] text-cyan-300" data-i18n="photo.factsEyebrow">Profile card</p><h2 id="profile-card-title" class="mt-1 text-base font-semibold text-white" data-i18n="photo.factsTitle">Quick facts</h2></div>
+                  <button id="profile-card-close" class="focus-ring grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-white/10 text-slate-400 hover:text-white" type="button" aria-label="Close profile card" data-i18n-aria="photo.close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                </div>
+                <dl class="mt-4 space-y-3 text-xs">
+                  <div><dt class="text-slate-500" data-i18n="photo.factRole">Current role</dt><dd class="mt-0.5 font-medium text-slate-200">Cloud Operations Graduate Engineer · Sage</dd></div>
+                  <div><dt class="text-slate-500" data-i18n="photo.factLocation">Location</dt><dd class="mt-0.5 font-medium text-slate-200" data-i18n="hero.location">Barcelona, Spain</dd></div>
+                  <div><dt class="text-slate-500" data-i18n="photo.factFocus">Focus</dt><dd class="mt-0.5 font-medium text-slate-200">Azure · Terraform · SRE</dd></div>
+                </dl>
+              </div>
+              <div class="absolute left-6 top-6 z-10 rounded-2xl border border-white/10 bg-slate-950/65 px-3.5 py-3 backdrop-blur-md">
+                <p class="text-[10px] font-semibold uppercase tracking-[.18em] text-slate-500" data-i18n="photo.cardLabel">Focus area</p>
+                <p class="mt-1 text-sm font-semibold text-slate-100">Azure <span class="text-cyan-300">·</span> IaC <span class="text-cyan-300">·</span> SRE</p>
+              </div>
+              <img src="./profile.png" alt="Portrait of Adria Rocamora" class="relative z-[1] w-full max-h-[490px] object-contain object-bottom drop-shadow-[0_18px_40px_rgba(0,0,0,.35)]" fetchpriority="high">
+              <div class="absolute bottom-5 left-5 z-10 rounded-xl border border-white/10 bg-slate-950/70 px-3 py-2 backdrop-blur-md sm:bottom-7 sm:left-7">
+                <p class="text-xs font-medium text-slate-200">Microsoft Azure</p>
+                <p class="mt-0.5 text-[10px] tracking-wide text-slate-500" data-i18n="photo.cloud">Cloud platform operations</p>
+              </div>
+              <div class="absolute bottom-5 right-5 z-10 rounded-xl border border-white/10 bg-slate-950/70 px-3 py-2 backdrop-blur-md sm:bottom-7 sm:right-7">
+                <p class="text-xs font-medium text-slate-200">Terraform</p>
+                <p class="mt-0.5 text-[10px] tracking-wide text-slate-500" data-i18n="photo.iac">Infrastructure as Code</p>
+              </div>
+            </div>
+          </div>
+          <div class="glass absolute -left-3 top-[43%] hidden items-center gap-3 rounded-2xl px-4 py-3 shadow-xl sm:flex sm:-left-24">
+            <span class="grid h-9 w-9 place-items-center rounded-xl bg-emerald-400/10 text-emerald-300"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></span>
+            <div><p class="text-xs font-semibold text-slate-100" data-i18n="photo.badge1">Secure by design</p><p class="mt-0.5 text-[10px] text-slate-400">Azure RBAC · Managed Identity</p></div>
+          </div>
+          <div class="glass absolute -right-2 top-[24%] hidden items-center gap-3 rounded-2xl px-4 py-3 shadow-xl sm:flex sm:-right-24">
+            <span class="grid h-9 w-9 place-items-center rounded-xl bg-blue-400/10 text-blue-300"><i class="fa-solid fa-code-branch" aria-hidden="true"></i></span>
+            <div><p class="text-xs font-semibold text-slate-100" data-i18n="photo.badge2">Infrastructure as Code</p><p class="mt-0.5 text-[10px] text-slate-400">Terraform · CI/CD</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section-anchor border-y border-white/[.06] bg-slate-950/35 py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <div class="section-index justify-center"><span>02</span><span data-i18n="skills.eyebrow">Toolbox</span></div>
+          <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl" data-i18n="skills.title">Skills, at a glance</h2>
+          <p class="mt-4 text-sm leading-7 text-slate-400 sm:text-base" data-i18n="skills.intro">A periodic-table view of the technologies and practices I use in cloud platform operations.</p>
+          <p class="stack-count mt-4 text-[11px] tracking-wide text-slate-500"><span id="skill-count">19</span> <span data-i18n="skills.elements">elements</span> <span class="mx-1 text-slate-700">·</span> <span data-i18n="skills.families">5 families</span></p>
+        </div>
+
+        <div class="mt-9 flex flex-wrap justify-center gap-2" role="group" aria-label="Filter skills by category">
+          <button class="filter-button focus-ring rounded-full px-4 py-2 text-xs font-medium" type="button" data-filter="all" aria-pressed="true" data-i18n="filter.all">All skills</button>
+          <button class="filter-button focus-ring rounded-full px-4 py-2 text-xs font-medium" type="button" data-filter="cloud" aria-pressed="false" data-i18n="category.cloud">Cloud &amp; IaC</button>
+          <button class="filter-button focus-ring rounded-full px-4 py-2 text-xs font-medium" type="button" data-filter="delivery" aria-pressed="false" data-i18n="category.delivery">DevOps &amp; CI/CD</button>
+          <button class="filter-button focus-ring rounded-full px-4 py-2 text-xs font-medium" type="button" data-filter="platform" aria-pressed="false" data-i18n="category.platform">Platform &amp; security</button>
+          <button class="filter-button focus-ring rounded-full px-4 py-2 text-xs font-medium" type="button" data-filter="reliability" aria-pressed="false" data-i18n="category.reliability">Reliability &amp; operations</button>
+          <button class="filter-button focus-ring rounded-full px-4 py-2 text-xs font-medium" type="button" data-filter="scripting" aria-pressed="false" data-i18n="category.scripting">Scripting</button>
+        </div>
+
+        <div id="skills-grid" class="periodic-grid mx-auto mt-8 max-w-6xl" aria-label="Interactive skills grid"></div>
+
+        <div id="skill-detail" class="glass mx-auto mt-5 flex max-w-6xl items-center gap-4 rounded-2xl px-4 py-4 sm:px-5" aria-live="polite">
+          <span id="skill-detail-symbol" class="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-cyan-300/20 bg-cyan-300/[.07] text-lg font-bold text-cyan-200">+</span>
+          <div><p id="skill-detail-name" class="text-sm font-semibold text-slate-100" data-i18n="skills.detailTitle">Explore a skill</p><p id="skill-detail-description" class="mt-1 text-xs leading-5 text-slate-400 sm:text-sm" data-i18n="skills.detailText">Hover, focus or select a tile to read a short description.</p></div>
+        </div>
+        <div class="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-[11px] text-slate-500" aria-label="Skill categories">
+          <span><i class="fa-solid fa-square text-cyan-300" aria-hidden="true"></i> <span data-i18n="category.cloud">Cloud &amp; IaC</span></span>
+          <span><i class="fa-solid fa-square text-blue-300" aria-hidden="true"></i> <span data-i18n="category.delivery">DevOps &amp; CI/CD</span></span>
+          <span><i class="fa-solid fa-square text-violet-300" aria-hidden="true"></i> <span data-i18n="category.platform">Platform &amp; security</span></span>
+          <span><i class="fa-solid fa-square text-emerald-300" aria-hidden="true"></i> <span data-i18n="category.reliability">Reliability &amp; operations</span></span>
+          <span><i class="fa-solid fa-square text-amber-300" aria-hidden="true"></i> <span data-i18n="category.scripting">Scripting</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section-anchor py-20 sm:py-24">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div class="max-w-2xl">
+            <div class="section-index"><span>03</span><span data-i18n="work.eyebrow">Project stories</span></div>
+            <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl" data-i18n="work.title">Cloud work, in context</h2>
+            <p class="mt-4 text-sm leading-7 text-slate-400 sm:text-base" data-i18n="work.intro">Selected contributions from my current work at Sage, framed around the operational need and the work involved.</p>
+          </div>
+          <span class="mb-1 inline-flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[.035] px-3 py-2 text-xs text-slate-400"><i class="fa-solid fa-briefcase text-cyan-300" aria-hidden="true"></i><span data-i18n="work.label">Sage · Cloud Operations</span></span>
+        </div>
+
+        <div class="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <article class="glass group flex min-h-[310px] flex-col rounded-2xl p-6 transition hover:-translate-y-1 hover:border-cyan-300/25 sm:p-7">
+            <div class="flex items-start justify-between"><span class="grid h-12 w-12 place-items-center rounded-2xl border border-cyan-300/15 bg-cyan-300/[.07] text-lg text-cyan-200"><i class="fa-solid fa-key" aria-hidden="true"></i></span><span class="text-xs font-medium text-slate-600">01</span></div>
+            <h3 class="mt-7 text-lg font-semibold text-white" data-i18n="work.identityTitle">Secure cloud identity</h3>
+            <div class="mt-5 flex-1 space-y-4"><div><p class="case-label" data-i18n="work.contextLabel">Context</p><p class="mt-1.5 text-sm leading-6 text-slate-400" data-i18n="work.identityContext">Applications need secure access to services without relying on static credentials.</p></div><div><p class="case-label" data-i18n="work.contributionLabel">Contribution</p><p class="mt-1.5 text-sm leading-6 text-slate-300" data-i18n="work.identityText">Support the adoption of Managed Identities and granular Azure RBAC, following least-privilege access.</p></div></div>
+            <div class="mt-5 flex flex-wrap gap-2"><span class="tag">Managed Identities</span><span class="tag">Azure RBAC</span><span class="tag">Azure</span></div>
+            <div class="mt-6 flex flex-wrap items-center gap-4"><a href="#contact" class="inline-flex w-fit items-center gap-2 text-xs font-semibold text-cyan-200 hover:text-white"><span data-i18n="work.discuss">Discuss this contribution</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></a><a id="repo-identity" class="repo-link inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white" href="#" hidden><i class="fa-brands fa-github" aria-hidden="true"></i><span data-i18n="work.github">View on GitHub</span></a></div>
+          </article>
+
+          <article class="glass group flex min-h-[310px] flex-col rounded-2xl p-6 transition hover:-translate-y-1 hover:border-blue-300/25 sm:p-7">
+            <div class="flex items-start justify-between"><span class="grid h-12 w-12 place-items-center rounded-2xl border border-blue-300/15 bg-blue-300/[.07] text-lg text-blue-200"><i class="fa-solid fa-cubes-stacked" aria-hidden="true"></i></span><span class="text-xs font-medium text-slate-600">02</span></div>
+            <h3 class="mt-7 text-lg font-semibold text-white" data-i18n="work.iacTitle">Infrastructure as Code</h3>
+            <div class="mt-5 flex-1 space-y-4"><div><p class="case-label" data-i18n="work.contextLabel">Context</p><p class="mt-1.5 text-sm leading-6 text-slate-400" data-i18n="work.iacContext">Cloud infrastructure changes need a consistent, reviewable path from code to validation.</p></div><div><p class="case-label" data-i18n="work.contributionLabel">Contribution</p><p class="mt-1.5 text-sm leading-6 text-slate-300" data-i18n="work.iacText">Contribute Terraform modules through Git-based reviews and pipeline validation for repeatable provisioning.</p></div></div>
+            <div class="mt-5 flex flex-wrap gap-2"><span class="tag">Terraform</span><span class="tag">Git</span><span class="tag">CI/CD</span></div>
+            <div class="mt-6 flex flex-wrap items-center gap-4"><a href="#contact" class="inline-flex w-fit items-center gap-2 text-xs font-semibold text-cyan-200 hover:text-white"><span data-i18n="work.discuss">Discuss this contribution</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></a><a id="repo-iac" class="repo-link inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white" href="#" hidden><i class="fa-brands fa-github" aria-hidden="true"></i><span data-i18n="work.github">View on GitHub</span></a></div>
+          </article>
+
+          <article class="glass group flex min-h-[310px] flex-col rounded-2xl p-6 transition hover:-translate-y-1 hover:border-violet-300/25 sm:p-7">
+            <div class="flex items-start justify-between"><span class="grid h-12 w-12 place-items-center rounded-2xl border border-violet-300/15 bg-violet-300/[.07] text-lg text-violet-200"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i></span><span class="text-xs font-medium text-slate-600">03</span></div>
+            <h3 class="mt-7 text-lg font-semibold text-white" data-i18n="work.releaseTitle">Operations &amp; releases</h3>
+            <div class="mt-5 flex-1 space-y-4"><div><p class="case-label" data-i18n="work.contextLabel">Context</p><p class="mt-1.5 text-sm leading-6 text-slate-400" data-i18n="work.releaseContext">Production changes need careful validation, release coordination and operational follow-up.</p></div><div><p class="case-label" data-i18n="work.contributionLabel">Contribution</p><p class="mt-1.5 text-sm leading-6 text-slate-300" data-i18n="work.releaseText">Support Sage Active release workflows with change validation, deployment follow-up and troubleshooting.</p></div></div>
+            <div class="mt-5 flex flex-wrap gap-2"><span class="tag">Azure DevOps</span><span class="tag">Monitoring</span><span class="tag">ServiceNow</span></div>
+            <div class="mt-6 flex flex-wrap items-center gap-4"><a href="#contact" class="inline-flex w-fit items-center gap-2 text-xs font-semibold text-cyan-200 hover:text-white"><span data-i18n="work.discuss">Discuss this contribution</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i></a><a id="repo-releases" class="repo-link inline-flex items-center gap-2 text-xs font-semibold text-slate-300 hover:text-white" href="#" hidden><i class="fa-brands fa-github" aria-hidden="true"></i><span data-i18n="work.github">View on GitHub</span></a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section-anchor border-y border-white/[.06] bg-slate-950/35 py-20 sm:py-24">
+      <div class="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[.72fr_1.28fr] lg:gap-20">
+        <div>
+          <div class="section-index"><span>04</span><span data-i18n="experience.eyebrow">Experience</span></div>
+          <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl" data-i18n="experience.title">Building dependable cloud operations</h2>
+          <p class="mt-5 text-sm leading-7 text-slate-400 sm:text-base" data-i18n="experience.intro">Working across platform operations, infrastructure delivery and service reliability with international engineering teams.</p>
+          <div class="mt-8 flex items-center gap-3 text-sm text-slate-400"><i class="fa-solid fa-location-dot text-cyan-300" aria-hidden="true"></i><span data-i18n="hero.location">Barcelona, Spain</span></div>
+        </div>
+
+        <div class="relative pl-8 sm:pl-10">
+          <div class="absolute bottom-3 left-[7px] top-2 w-px bg-gradient-to-b from-cyan-300/60 via-blue-400/30 to-transparent sm:left-[9px]"></div>
+          <article class="relative pb-3">
+            <span class="timeline-dot absolute -left-[28px] top-1.5 h-3 w-3 rounded-full border-2 border-cyan-200 bg-slate-950 sm:-left-[32px]"></span>
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <h3 class="text-lg font-semibold text-white">Sage</h3>
+              <span class="rounded-full border border-cyan-300/15 bg-cyan-300/[.06] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-cyan-100" data-i18n="experience.current">Current role</span>
+            </div>
+            <p class="mt-2 text-sm font-medium text-slate-200" data-i18n="hero.role">Cloud Operations Graduate Engineer at Sage</p>
+            <p class="mt-2 text-xs text-slate-500" data-i18n="experience.meta">Barcelona, Spain · Jul 2026 — Present · Cloud Platform Operations / SRE</p>
+            <ul class="mt-6 space-y-4">
+              <li class="flex gap-3 text-sm leading-7 text-slate-400"><i class="fa-solid fa-check mt-1.5 text-xs text-cyan-300" aria-hidden="true"></i><span data-i18n="experience.point1">Support the operation and evolution of Microsoft Azure services and environments across their lifecycle, with a focus on reliability, consistency and security.</span></li>
+              <li class="flex gap-3 text-sm leading-7 text-slate-400"><i class="fa-solid fa-check mt-1.5 text-xs text-cyan-300" aria-hidden="true"></i><span data-i18n="experience.point2">Contribute to Infrastructure as Code and declarative automation with Terraform and scripting.</span></li>
+              <li class="flex gap-3 text-sm leading-7 text-slate-400"><i class="fa-solid fa-check mt-1.5 text-xs text-cyan-300" aria-hidden="true"></i><span data-i18n="experience.point3">Support infrastructure and application delivery through CI/CD pipelines and production release workflows.</span></li>
+              <li class="flex gap-3 text-sm leading-7 text-slate-400"><i class="fa-solid fa-check mt-1.5 text-xs text-cyan-300" aria-hidden="true"></i><span data-i18n="experience.point4">Contribute to service reliability through monitoring, observability, troubleshooting and operational change management.</span></li>
+              <li class="flex gap-3 text-sm leading-7 text-slate-400"><i class="fa-solid fa-check mt-1.5 text-xs text-cyan-300" aria-hidden="true"></i><span data-i18n="experience.point5">Apply Managed Identities and Azure RBAC patterns to support secure service integration and least-privilege access.</span></li>
+              <li class="flex gap-3 text-sm leading-7 text-slate-400"><i class="fa-solid fa-check mt-1.5 text-xs text-cyan-300" aria-hidden="true"></i><span data-i18n="experience.point6">Collaborate across engineering, product and operations teams, and maintain technical runbooks and onboarding documentation.</span></li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section-anchor py-20 sm:py-24">
+      <div class="mx-auto max-w-5xl px-5 sm:px-8">
+        <div class="glass relative overflow-hidden rounded-3xl p-7 sm:p-12">
+          <div class="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full bg-cyan-400/[.08] blur-3xl"></div>
+          <div class="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+            <div class="max-w-2xl">
+              <div class="section-index"><span>05</span><span data-i18n="contact.eyebrow">Contact</span></div>
+              <h2 class="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl" data-i18n="contact.title">Let's build reliable things.</h2>
+              <p class="mt-4 text-sm leading-7 text-slate-400 sm:text-base" data-i18n="contact.text">Interested in cloud platform operations, infrastructure automation or service reliability? I'd be glad to connect.</p>
+            </div>
+            <div class="flex flex-wrap gap-2" id="contact-links">
+              <a id="contact-email" class="contact-link focus-ring inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[.04] px-4 py-3 text-sm font-medium text-slate-200 hover:border-cyan-300/30 hover:text-cyan-100" href="#" hidden><i class="fa-regular fa-envelope" aria-hidden="true"></i> Email</a>
+              <a id="contact-linkedin" class="contact-link focus-ring inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[.04] px-4 py-3 text-sm font-medium text-slate-200 hover:border-cyan-300/30 hover:text-cyan-100" href="#" hidden><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i> LinkedIn</a>
+              <a id="contact-github" class="contact-link focus-ring inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[.04] px-4 py-3 text-sm font-medium text-slate-200 hover:border-cyan-300/30 hover:text-cyan-100" href="#" hidden><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+            </div>
+          </div>
+          <p class="relative mt-7 border-t border-white/[.08] pt-5 text-xs leading-6 text-slate-500" data-i18n="contact.note">Barcelona, Spain · Cloud Operations at Sage</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-white/[.07] bg-slate-950/35">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-7 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between sm:px-8">
+      <p>© <span id="current-year"></span> Adria Rocamora <span data-i18n="footer.rights">· All rights reserved</span></p>
+      <div class="flex items-center gap-4">
+        <a id="footer-github" class="nav-link" href="#" hidden>GitHub</a>
+        <a id="footer-linkedin" class="nav-link" href="#" hidden>LinkedIn</a>
+        <a id="footer-email" class="nav-link" href="#" hidden>Email</a>
+        <a class="nav-link" href="#home"><span data-i18n="footer.top">Back to top</span> <i class="fa-solid fa-arrow-up ml-1 text-[10px]" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .tag { display: inline-flex; align-items: center; border: 1px solid rgba(148,163,184,.14); border-radius: 999px; background: rgba(15,23,42,.55); padding: .38rem .62rem; color: #94a3b8; font-size: .65rem; font-weight: 500; }
+    .language-button { color: #94a3b8; }
+    .language-button[aria-pressed="true"] { background: rgba(103,232,249,.14); color: #cffafe; }
+  </style>
+
+  <script>
+    /*
+      Add your real public profile and repository URLs here before publishing.
+      Leave a value empty to keep that link hidden. No contact or project URLs
+      were supplied, so this file does not guess them.
+    */
+    const SITE_CONFIG = {
+      github: "https://github.com/adriarg",
+      linkedin: "https://www.linkedin.com/in/adria-rocamora/",
+      email: "rocamoradria@gmail.com",
+      projects: {
+        identity: "",
+        iac: "",
+        releases: ""
+      }
+    };
+
+    const translations = {
+      en: {
+        skip: "Skip to content",
+        "menu.open": "Open menu", "menu.close": "Close menu",
+        "nav.home": "Home", "nav.skills": "Skills", "nav.work": "Projects", "nav.experience": "Experience", "nav.contact": "Contact",
+        "hero.section": "About",
+        "hero.eyebrow": "Cloud Platform Operations · SRE", "hero.greeting": "Hello, I'm", "hero.role": "Cloud Operations Graduate Engineer at Sage",
+        "hero.summary": "I help cloud platforms stay secure, dependable and easier to operate through Azure, Infrastructure as Code and thoughtful operations.",
+        "hero.projects": "Explore my work", "hero.contact": "Get in touch", "hero.location": "Barcelona, Spain", "hero.date": "At Sage since July 2026",
+        "photo.cardLabel": "Focus area", "photo.cloud": "Cloud platform operations", "photo.iac": "Infrastructure as Code", "photo.badge1": "Secure by design", "photo.badge2": "Infrastructure as Code",
+        "photo.profileButton": "Quick profile", "photo.profileAria": "Toggle quick profile card", "photo.close": "Close quick profile card", "photo.factsEyebrow": "Profile card", "photo.factsTitle": "Quick facts", "photo.factRole": "Current role", "photo.factLocation": "Location", "photo.factFocus": "Focus",
+        "skills.eyebrow": "Toolbox", "skills.title": "Skills, at a glance", "skills.intro": "A periodic-table view of the technologies and practices I use in cloud platform operations.", "skills.elements": "elements", "skills.families": "5 families",
+        "skills.detailTitle": "Explore a skill", "skills.detailText": "Hover, focus or select a tile to read a short description.",
+        "filter.all": "All skills", "category.cloud": "Cloud & IaC", "category.delivery": "DevOps & CI/CD", "category.platform": "Platform & security", "category.reliability": "Reliability & operations", "category.scripting": "Scripting",
+        "work.eyebrow": "Selected work", "work.title": "Cloud work, in context", "work.intro": "Selected contributions from my current work at Sage, framed around the operational need and the work involved.", "work.label": "Sage · Cloud Operations",
+        "work.contextLabel": "Context", "work.contributionLabel": "Contribution",
+        "work.identityTitle": "Secure cloud identity", "work.identityContext": "Applications need secure access to services without relying on static credentials.", "work.identityText": "Support the adoption of Managed Identities and granular Azure RBAC, following least-privilege access.",
+        "work.iacTitle": "Infrastructure as Code", "work.iacContext": "Cloud infrastructure changes need a consistent, reviewable path from code to validation.", "work.iacText": "Contribute Terraform modules through Git-based reviews and pipeline validation for repeatable provisioning.",
+        "work.releaseTitle": "Operations & releases", "work.releaseContext": "Production changes need careful validation, release coordination and operational follow-up.", "work.releaseText": "Support Sage Active release workflows with change validation, deployment follow-up and troubleshooting.",
+        "work.discuss": "Discuss this contribution", "work.github": "View on GitHub",
+        "experience.eyebrow": "Experience", "experience.title": "Building dependable cloud operations", "experience.intro": "Working across platform operations, infrastructure delivery and service reliability with international engineering teams.", "experience.current": "Current role", "experience.meta": "Barcelona, Spain · Jul 2026 — Present · Cloud Platform Operations / SRE",
+        "experience.point1": "Support the operation and evolution of Microsoft Azure services and environments across their lifecycle, with a focus on reliability, consistency and security.",
+        "experience.point2": "Contribute to Infrastructure as Code and declarative automation with Terraform and scripting.",
+        "experience.point3": "Support infrastructure and application delivery through CI/CD pipelines and production release workflows.",
+        "experience.point4": "Contribute to service reliability through monitoring, observability, troubleshooting and operational change management.",
+        "experience.point5": "Apply Managed Identities and Azure RBAC patterns to support secure service integration and least-privilege access.",
+        "experience.point6": "Collaborate across engineering, product and operations teams, and maintain technical runbooks and onboarding documentation.",
+        "contact.eyebrow": "Contact", "contact.title": "Let's build reliable things.", "contact.text": "Interested in cloud platform operations, infrastructure automation or service reliability? I'd be glad to connect.", "contact.note": "Barcelona, Spain · Cloud Operations at Sage",
+        "footer.rights": "· All rights reserved", "footer.top": "Back to top"
+      },
+      es: {
+        skip: "Saltar al contenido",
+        "menu.open": "Abrir menú", "menu.close": "Cerrar menú",
+        "nav.home": "Inicio", "nav.skills": "Habilidades", "nav.work": "Proyectos", "nav.experience": "Experiencia", "nav.contact": "Contacto",
+        "hero.section": "Sobre mí",
+        "hero.eyebrow": "Operaciones de plataforma cloud · SRE", "hero.greeting": "Hola, soy", "hero.role": "Graduate Engineer de Cloud Operations en Sage",
+        "hero.summary": "Ayudo a que las plataformas cloud sean seguras, fiables y más sencillas de operar mediante Azure, Infraestructura como Código y buenas prácticas operativas.",
+        "hero.projects": "Ver mi trabajo", "hero.contact": "Contactar", "hero.location": "Barcelona, España", "hero.date": "En Sage desde julio de 2026",
+        "photo.cardLabel": "Áreas de enfoque", "photo.cloud": "Operaciones de plataforma cloud", "photo.iac": "Infraestructura como Código", "photo.badge1": "Seguridad desde el diseño", "photo.badge2": "Infraestructura como Código",
+        "photo.profileButton": "Ficha rápida", "photo.profileAria": "Mostrar u ocultar la ficha rápida", "photo.close": "Cerrar la ficha rápida", "photo.factsEyebrow": "Perfil", "photo.factsTitle": "Datos rápidos", "photo.factRole": "Puesto actual", "photo.factLocation": "Ubicación", "photo.factFocus": "Áreas de enfoque",
+        "skills.eyebrow": "Tecnologías", "skills.title": "Habilidades de un vistazo", "skills.intro": "Una tabla periódica de las tecnologías y prácticas que utilizo en operaciones de plataformas cloud.", "skills.elements": "elementos", "skills.families": "5 categorías",
+        "skills.detailTitle": "Explora una habilidad", "skills.detailText": "Pasa el cursor, enfoca o selecciona una tarjeta para ver una breve descripción.",
+        "filter.all": "Todas", "category.cloud": "Cloud e IaC", "category.delivery": "DevOps y CI/CD", "category.platform": "Plataforma y seguridad", "category.reliability": "Fiabilidad y operaciones", "category.scripting": "Scripting",
+        "work.eyebrow": "Trabajo seleccionado", "work.title": "El contexto de mi trabajo cloud", "work.intro": "Contribuciones de mi puesto actual en Sage, explicadas desde la necesidad operativa y el trabajo realizado.", "work.label": "Sage · Cloud Operations",
+        "work.contextLabel": "Contexto", "work.contributionLabel": "Contribución",
+        "work.identityTitle": "Identidad cloud segura", "work.identityContext": "Las aplicaciones necesitan acceder a servicios de forma segura, sin depender de credenciales estáticas.", "work.identityText": "Apoyo la adopción de Managed Identities y Azure RBAC granular, aplicando el principio de mínimo privilegio.",
+        "work.iacTitle": "Infraestructura como Código", "work.iacContext": "Los cambios de infraestructura cloud necesitan un proceso coherente, revisable y validado.", "work.iacText": "Contribuyo a módulos Terraform mediante revisiones en Git y validaciones en pipelines para un aprovisionamiento repetible.",
+        "work.releaseTitle": "Operaciones y releases", "work.releaseContext": "Los cambios en producción requieren validación, coordinación de releases y seguimiento operativo.", "work.releaseText": "Apoyo releases de Sage Active con validación de cambios, seguimiento de despliegues y troubleshooting.",
+        "work.discuss": "Hablar sobre esta contribución", "work.github": "Ver en GitHub",
+        "experience.eyebrow": "Experiencia", "experience.title": "Operaciones cloud fiables", "experience.intro": "Trabajo en operaciones de plataforma, entrega de infraestructura y fiabilidad de servicios junto a equipos internacionales de ingeniería.", "experience.current": "Puesto actual", "experience.meta": "Barcelona, España · Jul 2026 — Actualidad · Cloud Platform Operations / SRE",
+        "experience.point1": "Apoyo la operación y evolución de servicios y entornos de Microsoft Azure durante todo su ciclo de vida, con foco en fiabilidad, consistencia y seguridad.",
+        "experience.point2": "Contribuyo a prácticas de Infraestructura como Código y automatización declarativa con Terraform y scripting.",
+        "experience.point3": "Apoyo la entrega de cambios de infraestructura y aplicaciones mediante pipelines CI/CD y flujos de release en producción.",
+        "experience.point4": "Contribuyo a la fiabilidad del servicio mediante monitorización, observabilidad, troubleshooting y gestión operativa del cambio.",
+        "experience.point5": "Aplico patrones de Managed Identities y Azure RBAC para facilitar integraciones seguras y accesos de mínimo privilegio.",
+        "experience.point6": "Colaboro con equipos de ingeniería, producto y operaciones, y mantengo runbooks técnicos y documentación de onboarding.",
+        "contact.eyebrow": "Contacto", "contact.title": "Construyamos servicios fiables.", "contact.text": "¿Te interesan las operaciones de plataforma cloud, la automatización de infraestructura o la fiabilidad de servicios? Me encantará conectar.", "contact.note": "Barcelona, España · Cloud Operations en Sage",
+        "footer.rights": "· Todos los derechos reservados", "footer.top": "Volver arriba"
+      }
+    };
+
+    const skills = [
+      {symbol:"Az", name:"Microsoft Azure", category:"cloud", en:"Cloud environments and services used across platform operations.", es:"Entornos y servicios cloud utilizados en operaciones de plataforma."},
+      {symbol:"Tf", name:"Terraform", category:"cloud", en:"Infrastructure as Code for repeatable cloud changes.", es:"Infraestructura como Código para gestionar cambios cloud repetibles."},
+      {symbol:"Az", name:"Azure DevOps", category:"delivery", en:"Repositories, work tracking and delivery workflows.", es:"Repositorios, seguimiento del trabajo y flujos de entrega."},
+      {symbol:"Gh", name:"GitHub", category:"delivery", en:"Version control and collaborative pull request workflows.", es:"Control de versiones y flujos colaborativos con pull requests."},
+      {symbol:"CI", name:"CI/CD pipelines", category:"delivery", en:"Automated validation and release delivery pipelines.", es:"Pipelines automatizados de validación y entrega de releases."},
+      {symbol:"PR", name:"Pull requests", category:"delivery", en:"Reviewed, traceable changes to infrastructure and code.", es:"Cambios revisados y trazables en infraestructura y código."},
+      {symbol:"ACA", name:"Azure Container Apps", category:"platform", en:"Managed application platform for containerised workloads.", es:"Plataforma gestionada para aplicaciones contenerizadas."},
+      {symbol:"Kd", name:"KEDA", category:"platform", en:"Event-driven autoscaling for container workloads.", es:"Escalado basado en eventos para cargas contenerizadas."},
+      {symbol:"SB", name:"Azure Service Bus", category:"platform", en:"Messaging service used in distributed cloud applications.", es:"Servicio de mensajería para aplicaciones cloud distribuidas."},
+      {symbol:"MI", name:"Managed Identities", category:"platform", en:"Azure identities that help applications access services securely.", es:"Identidades de Azure para que las aplicaciones accedan a servicios de forma segura."},
+      {symbol:"RB", name:"Azure RBAC", category:"platform", en:"Role-based access control following least privilege.", es:"Control de acceso basado en roles y mínimo privilegio."},
+      {symbol:"CT", name:"Containers", category:"platform", en:"Container-based application deployment concepts.", es:"Conceptos de despliegue de aplicaciones en contenedores."},
+      {symbol:"SRE", name:"SRE practices", category:"reliability", en:"Operational practices focused on reliable services.", es:"Prácticas operativas orientadas a servicios fiables."},
+      {symbol:"Obs", name:"Monitoring & observability", category:"reliability", en:"Signals and telemetry that help teams understand service health.", es:"Señales y telemetría para entender la salud del servicio."},
+      {symbol:"Ops", name:"Troubleshooting", category:"reliability", en:"Investigating operational issues and supporting recovery.", es:"Investigación de incidencias operativas y apoyo a la recuperación."},
+      {symbol:"SN", name:"ServiceNow change management", category:"reliability", en:"Structured operational change and release coordination.", es:"Coordinación estructurada de cambios operativos y releases."},
+      {symbol:"Rel", name:"Releases", category:"reliability", en:"Validated infrastructure and application deployment workflows.", es:"Flujos validados de despliegue de infraestructura y aplicaciones."},
+      {symbol:"Py", name:"Python", category:"scripting", en:"Scripting and automation for operational tasks.", es:"Scripting y automatización de tareas operativas."},
+      {symbol:"Sh", name:"Bash", category:"scripting", en:"Command-line scripting for automation and platform work.", es:"Scripting de línea de comandos para automatización y tareas de plataforma."}
+    ];
+
+    let currentLanguage = "en";
+    let currentFilter = "all";
+    let selectedSkill = null;
+
+    function renderSkills() {
+      const grid = document.getElementById("skills-grid");
+      grid.replaceChildren();
+      skills.forEach((skill, index) => {
+        const card = document.createElement("button");
+        card.type = "button";
+        card.className = `skill-card category-${skill.category} glass focus-ring rounded-2xl p-3 text-left`;
+        card.dataset.category = skill.category;
+        card.setAttribute("aria-pressed", selectedSkill === index ? "true" : "false");
+        const description = skill[currentLanguage];
+        card.setAttribute("aria-label", `${skill.name}. ${description}`);
+        card.innerHTML = `<span class="absolute right-3 top-2 text-[9px] font-medium tracking-wider text-slate-600">${String(index + 1).padStart(2,"0")}</span><span class="skill-symbol mt-2 block text-2xl font-semibold tracking-tight">${skill.symbol}</span><span class="mt-1 block text-[11px] font-medium leading-4 text-slate-200">${skill.name}</span><span class="skill-hint">${description}</span>`;
+        if (currentFilter !== "all") card.classList.toggle("is-dimmed", skill.category !== currentFilter);
+        if (selectedSkill === index) card.classList.add("is-selected");
+        card.addEventListener("click", () => selectSkill(index));
+        grid.append(card);
+      });
+      if (selectedSkill !== null) showSkillDetail(selectedSkill);
+    }
+
+    function showSkillDetail(index) {
+      const skill = skills[index];
+      document.getElementById("skill-detail-symbol").textContent = skill.symbol;
+      document.getElementById("skill-detail-name").textContent = skill.name;
+      document.getElementById("skill-detail-description").textContent = skill[currentLanguage];
+    }
+
+    function selectSkill(index) {
+      selectedSkill = index;
+      renderSkills();
+      showSkillDetail(index);
+    }
+
+    function applyFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll("[data-filter]").forEach(button => {
+        button.setAttribute("aria-pressed", button.dataset.filter === filter ? "true" : "false");
+      });
+      document.querySelectorAll(".skill-card").forEach(card => {
+        const matches = filter === "all" || card.dataset.category === filter;
+        card.classList.toggle("is-dimmed", !matches);
+        card.classList.toggle("is-selected", matches && selectedSkill !== null && skills[selectedSkill].category === card.dataset.category && card.getAttribute("aria-label").startsWith(skills[selectedSkill].name));
+      });
+    }
+
+    function setLanguage(language) {
+      currentLanguage = language;
+      document.documentElement.lang = language;
+      document.querySelectorAll("[data-i18n]").forEach(element => {
+        const value = translations[language][element.dataset.i18n];
+        if (value) element.textContent = value;
+      });
+      document.querySelectorAll("[data-i18n-aria]").forEach(element => {
+        const value = translations[language][element.dataset.i18nAria];
+        if (value) element.setAttribute("aria-label", value);
+      });
+      document.querySelectorAll("[data-language]").forEach(button => {
+        button.setAttribute("aria-pressed", button.dataset.language === language ? "true" : "false");
+      });
+      renderSkills();
+      document.title = language === "es" ? "Adria Rocamora | Ingeniero de Cloud Operations" : "Adria Rocamora | Cloud Operations Engineer";
+      const description = language === "es"
+        ? "Adria Rocamora — Graduate Engineer de Cloud Operations, especializado en Azure, Infraestructura como Código y operaciones fiables de plataformas."
+        : "Adria Rocamora — Cloud Operations Graduate Engineer focused on Azure, Infrastructure as Code and reliable platform operations.";
+      document.querySelector('meta[name="description"]').setAttribute("content", description);
+      try { localStorage.setItem("portfolio-language", language); } catch (_) { /* Storage may be unavailable in private browsing. */ }
+    }
+
+    function safeExternalUrl(value, type) {
+      if (!value) return "";
+      if (type === "email") return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? `mailto:${value}` : "";
+      try {
+        const url = new URL(value);
+        return url.protocol === "https:" ? url.href : "";
+      } catch (_) { return ""; }
+    }
+
+    function activateLink(id, value, type) {
+      const element = document.getElementById(id);
+      const href = safeExternalUrl(value, type);
+      if (!element || !href) return false;
+      element.href = href;
+      if (type !== "email") { element.target = "_blank"; element.rel = "noopener noreferrer"; }
+      element.hidden = false;
+      return true;
+    }
+
+    document.querySelectorAll("[data-filter]").forEach(button => button.addEventListener("click", () => applyFilter(button.dataset.filter)));
+    document.querySelectorAll("[data-language]").forEach(button => button.addEventListener("click", () => setLanguage(button.dataset.language)));
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+    document.getElementById("skill-count").textContent = skills.length;
+
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileNav = document.getElementById("mobile-nav");
+    menuButton.addEventListener("click", () => {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+      menuButton.setAttribute("aria-expanded", String(!isOpen));
+      menuButton.setAttribute("aria-label", translations[currentLanguage][isOpen ? "menu.open" : "menu.close"]);
+      mobileNav.classList.toggle("hidden", isOpen);
+    });
+    mobileNav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      mobileNav.classList.add("hidden");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", translations[currentLanguage]["menu.open"]);
+    }));
+
+    const profileToggle = document.getElementById("profile-card-toggle");
+    const profileCard = document.getElementById("profile-card");
+    const profileClose = document.getElementById("profile-card-close");
+    function setProfileCard(open) {
+      profileCard.hidden = !open;
+      profileToggle.setAttribute("aria-expanded", String(open));
+      if (open) profileClose.focus();
+      else profileToggle.focus();
+    }
+    profileToggle.addEventListener("click", () => setProfileCard(profileToggle.getAttribute("aria-expanded") !== "true"));
+    profileClose.addEventListener("click", () => setProfileCard(false));
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && !profileCard.hidden) setProfileCard(false);
+    });
+
+    activateLink("header-github", SITE_CONFIG.github, "url");
+    activateLink("header-linkedin", SITE_CONFIG.linkedin, "url");
+    activateLink("contact-github", SITE_CONFIG.github, "url");
+    activateLink("contact-linkedin", SITE_CONFIG.linkedin, "url");
+    activateLink("contact-email", SITE_CONFIG.email, "email");
+    activateLink("footer-github", SITE_CONFIG.github, "url");
+    activateLink("footer-linkedin", SITE_CONFIG.linkedin, "url");
+    activateLink("footer-email", SITE_CONFIG.email, "email");
+    activateLink("repo-identity", SITE_CONFIG.projects.identity, "url");
+    activateLink("repo-iac", SITE_CONFIG.projects.iac, "url");
+    activateLink("repo-releases", SITE_CONFIG.projects.releases, "url");
+    try {
+      const savedLanguage = localStorage.getItem("portfolio-language");
+      if (savedLanguage === "es" || savedLanguage === "en") currentLanguage = savedLanguage;
+    } catch (_) { /* Use English when browser storage is unavailable. */ }
+    renderSkills();
+    setLanguage(currentLanguage);
+  </script>
+</body>
+</html>
